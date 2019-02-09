@@ -5,4 +5,9 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    if request.method == 'POST':
+        val = request.POST.get('url')
+        print(val)
+        return render(request,"flair_detector/index.html",{"output":val})
+
+    return render(request,"flair_detector/index.html")
