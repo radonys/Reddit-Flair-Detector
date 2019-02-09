@@ -19,7 +19,7 @@ import praw
 import re
 from bs4 import BeautifulSoup
 import nltk
-nltk.download('all')
+# nltk.download('all')
 from nltk.corpus import stopwords
 
 """### Variable Declarations and Utility Functions"""

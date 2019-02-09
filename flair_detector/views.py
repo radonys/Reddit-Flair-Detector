@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, HttpResponse
 from django.conf import settings
 from . import reddit_flair_prediction as rdf
+import sys
 # Create your views here.
 def index(request):
     
@@ -15,6 +16,7 @@ def index(request):
 
     return render(request,"flair_detector/index.html")
 
+sys.stdout.flush()
 
 
 
