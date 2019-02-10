@@ -44,11 +44,11 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html"><img src = "https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class = "img-responsive" width="50" height="50"></a>
+      <a class="navbar-brand" href="{% url 'index' %}"><img src = "https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class = "img-responsive" width="50" height="50"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="statistics.html">STATISTICS</a></li>
+        <li><a href="{% url 'statistics' %}">STATISTICS</a></li>
       </ul>
     </div>
   </div>
@@ -59,10 +59,64 @@
     <p>Statistics for collected Reddit India data</p> 
   </div>
 <div class="container-fluid">
+    <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 <div class="container-fluid bg-grey">
   <h5 align="right">Developed by <a href = "https://github.com/radonys">Yash Srivastava</a></h5>
 </div>
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+<script>
+var ctx = document.getElementById("myChart");
+var finaldat = JSON.parse('{{comup | safe}}')
+var labelsr = ['AMA','AskIndia','Business/Finance','Food','Non-Political','Photography','Policy/Economy','Politics','Scheduled','Science/Technology','Sports','[R]eddiquette']
+var comm = []
+var score = []
+for( var key1 in  finaldat)
+{
+  for( var key2 in  finaldat[key1])
+  {
+    if(key1 == 'comms_num')
+    {
+      comm.push(finaldat[key1][key2])
+    }
+    else
+    {
+      score.push(finaldat[key1][key2])
+    }
+  }
+}
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: labelsr,
+        datasets: [{
+            label: 'Comments',
+            data: comm,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor:'rgba(255,99,132,1)',
+            borderWidth: 1
+        },{
+            label: 'Upvotes',
+            data: score,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        },
+        title: {
+						display: true,
+						text: 'Comments vs Upvotes (in %)'
+					}
+    }
+});
+</script>
 </body>
 </html>

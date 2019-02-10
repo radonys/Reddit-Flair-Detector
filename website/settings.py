@@ -26,7 +26,7 @@ SECRET_KEY = '45x8bl^-(r)()#ybz271gu%k^7e!rfb-ji%m(9nq2)kb#k8raj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['redditindiaflair.herokuapp.com']
+ALLOWED_HOSTS = ['redditindiaflair.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'flair_detector'
+    'flair_detector',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +123,8 @@ STATIC_URL = '/static/'
 
 MODEL_PATH = os.path.join(BASE_DIR,'Models/finalized_model.sav')
 MODEL_FILE = pickle.load(open(MODEL_PATH,'rb'))
+
+DATA_PATH = os.path.join(BASE_DIR,'data/CSV/reddit-india-data.csv')
 
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')

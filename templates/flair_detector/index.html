@@ -44,11 +44,11 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html"><img src = "https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class = "img-responsive" width="50" height="50"></a>
+      <a class="navbar-brand" href="{% url 'index' %}"><img src = "https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class = "img-responsive" width="50" height="50"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="statistics.html">STATISTICS</a></li>
+        <li><a href="{% url 'statistics' %}">STATISTICS</a></li>
       </ul>
     </div>
   </div>
