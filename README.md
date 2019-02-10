@@ -53,7 +53,7 @@ The approach taken for the task is as follows:
 
   1. Collect 100 India subreddit data for each of the 12 flairs using `praw` module [[1]](http://www.storybench.org/how-to-scrape-reddit-with-python/).
   2. The data includes *title, comments, body, url, author, score, id, time-created* and *number of comments*.
-  3. For **comments**, only top level comments are considered in dataset and no sub-comements are present.
+  3. For **comments**, only top level comments are considered in dataset and no sub-comments are present.
   4. The ***title, comments*** and ***body*** are cleaned by removing bad symbols and stopwords using `nltk`.
   5. Five types of features are considered for the the given task:
     
