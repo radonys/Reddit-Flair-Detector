@@ -24,7 +24,7 @@ from nltk.corpus import stopwords
 
 """### Variable Declarations and Utility Functions"""
 
-reddit = praw.Reddit(client_id='_4Z0SOGEI31a3Q', client_secret='fzhJE6_cjPqLN6goG4R7cJ6SK3Q', user_agent='reddit-flair-detector', username='radonys', password='reddit_india')
+reddit = praw.Reddit(client_id='#', client_secret='#', user_agent='#', username='#', password='#')
 #loaded_model = pickle.load(open('finalized_model.sav', 'rb'))
 
 REPLACE_BY_SPACE_RE = re.compile('[/(){}\[\]\|@,;]')
